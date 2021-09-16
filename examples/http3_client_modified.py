@@ -387,7 +387,7 @@ async def run(
 
 
             ############### modifications #####################
-            print("Hello there!")
+            print("Hello there!")       # Test für Git
 
             for i in range(1): # number of sent messages
                 print("message number: " + str(i))
