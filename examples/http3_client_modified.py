@@ -392,7 +392,7 @@ async def run(
             for i in range(1): # number of sent messages
                 print("message number: " + str(i))
                 ### how much data do you want to send?
-                datasize = 100
+                datasize = 10
                 msgID = random_generator(10, "6793YZETUIO")
                 print(msgID)
                 msgContent = random_generator((datasize - 10), "6793ZETYUIO")        # change the number for changing the payload !?
@@ -419,7 +419,7 @@ async def run(
                 print("Server answer " + message)
                 print("Latency is: " + str(latency))
 
-                with open('http3_test.csv', 'a', newline='') as file:
+                with open('http3_10B_Payload_Threads100x100_Wlan.csv', 'a', newline='') as file:
                     writer = csv.writer(file)
                     # writer.writerow([i,msgID,t_client,t_server, t_fire,server_client, firebase_clinet])
                     writer.writerow([i, msgID, latency])
