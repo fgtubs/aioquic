@@ -395,30 +395,26 @@ async def run(
                 datasize = 10
                 msgID = random_generator(10, "6793YZETUIO")
                 print(msgID)
-                msgContent = random_generator((datasize - 10), "6793ZETYUIO")        # change the number for changing the payload !?
+                msgContent = random_generator((datasize - 10), "6793ZETYUIO")
                 print(msgContent)
-
-
-                ###### here we can change the message size as text
-                jsonmsg2 = {"id": "1q",
-                            "mesg": "anytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextan"}
-                jsonmsg = {"id": "1q", "distance": "99", "any": "99ss"}
-                jsonmsg3 = {"id": msgID, "distance": "99", "any": "99ss"}
+                # take first time stamp 
                 t_client = time.time()
                 # print("start time : " + str(t_client))
-                jsonmsg4 = {"id": msgID, "distance": msgContent}
                 myMsg = msgID + msgContent
                 sent = json.dumps(myMsg)
+                # send message
                 await ws.send(sent)
 
 
                 ### Recieve message from Server ###
                 message = await ws.recv()
+                # take second time stamp
                 t_recvied = time.time()
                 latency = t_recvied - t_client
                 print("Server answer " + message)
                 print("Latency is: " + str(latency))
 
+                # write latency in csv file
                 with open('http3_10B_Payload_Threads100x100_Wlan.csv', 'a', newline='') as file:
                     writer = csv.writer(file)
                     # writer.writerow([i,msgID,t_client,t_server, t_fire,server_client, firebase_clinet])
