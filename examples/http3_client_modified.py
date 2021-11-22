@@ -419,7 +419,7 @@ async def run(
                 print("Server answer " + message)
                 print("Latency is: " + str(latency))
 
-                with open('./TestDataHttp3/http3_1kB_Payload_Threads200x100_Wlan.csv', 'a', newline='') as file:
+                with open('./TestDataHttp3/http3_1kB_Payload_forCall10k_eth.csv', 'a', newline='') as file:
                     writer = csv.writer(file)
                     # writer.writerow([i,msgID,t_client,t_server, t_fire,server_client, firebase_client])
                     writer.writerow([i, msgID, latency])
