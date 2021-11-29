@@ -400,13 +400,7 @@ async def run(
 
 
                 ###### here we can change the message size as text
-                jsonmsg2 = {"id": "1q",
-                            "mesg": "anytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextanytextan"}
-                jsonmsg = {"id": "1q", "distance": "99", "any": "99ss"}
-                jsonmsg3 = {"id": msgID, "distance": "99", "any": "99ss"}
                 t_client = time.time()
-                # print("start time : " + str(t_client))
-                jsonmsg4 = {"id": msgID, "distance": msgContent}
                 myMsg = msgID + msgContent
                 sent = json.dumps(myMsg)
                 await ws.send(sent)
@@ -421,7 +415,6 @@ async def run(
 
                 with open('./TestDataHttp3/http3_1kB_Payload_forCall10k_eth.csv', 'a', newline='') as file:
                     writer = csv.writer(file)
-                    # writer.writerow([i,msgID,t_client,t_server, t_fire,server_client, firebase_client])
                     writer.writerow([i, msgID, latency])
                     file.close()
 
